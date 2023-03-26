@@ -9,18 +9,22 @@ tkinter_sign = tk.StringVar()
 label_sign = tk.Label(textvariable=tkinter_sign)
 label_result = tk.Label(textvariable=tkinter_result)
 
+x = textbox_x.get()
+y = textbox_y.get()
+if x == " ":
+    x = int(textbox_x.get())
+
+if y == " ":
+    y = int(textbox_y.get())
+
 
 def add_onclick():
-    x = int(textbox_x.get())
-    y = int(textbox_y.get())
     sign = "+"
     tkinter_sign.set(sign)
     result = x + y
     tkinter_result.set(result)
 
 def sub_onclick():
-    x = int(textbox_x.get())
-    y = int(textbox_y.get())
     sign = "-"
     tkinter_sign.set(sign)
     result = x - y
@@ -28,8 +32,6 @@ def sub_onclick():
 
 
 def mtpl_onclick():
-    x = int(textbox_x.get())
-    y = int(textbox_y.get())
     sign = "x"
     tkinter_sign.set(sign)
     result = x * y
@@ -37,8 +39,6 @@ def mtpl_onclick():
  
 
 def div_onclick():
-    x = int(textbox_x.get())
-    y = int(textbox_y.get())
     sign = ":"
     tkinter_sign.set(sign)
     result = x / y
@@ -55,5 +55,6 @@ textbox_y.grid(column=3, row=1)
 label_result.grid(column=4, row=1)
 button_sub.grid(column=1, row=3)
 button_add.grid(column=1, row=3)
+
 
 root.mainloop()
