@@ -1,5 +1,5 @@
 # KCalc-project
-This is the official repository for the open-source KCalc Project
+Kcalc is an open source(GPL v3.0) calculator for desktop 
 
 ##### CHANGE LOG #####
 
