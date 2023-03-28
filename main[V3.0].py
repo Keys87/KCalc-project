@@ -1,5 +1,6 @@
 import tkinter as tk
 import tkinter.font as font
+import math as m
 
 root = tk.Tk()
 textbox_x = tk.Entry(relief="solid")
@@ -127,6 +128,30 @@ def div_onclick():
     main_event()
 
 
+def pwr_onclick():
+    def main_event():
+        sign = "^"
+        tkinter_sign.set(sign)
+        result = m.pow(x, y)
+        tkinter_result.set(result)
+
+    x = textbox_x.get()
+    y = textbox_y.get()
+    if x != " ":
+        x = float(textbox_x.get())
+
+    elif x == " ":
+        x = 0.0
+
+    if y != " ":
+        y = float(textbox_y.get())
+
+    elif y == " ":
+        y = 0.0
+
+    main_event()
+
+
 font_for_buttons = font.Font(family="calibri", size=11)
 
 
@@ -134,6 +159,7 @@ button_add = tk.Button(text="+", command=add_onclick, relief="solid", bd=1, widt
 button_sub = tk.Button(text="-", command=sub_onclick, relief="solid", bd=1, width=6)
 button_mtpl = tk.Button(text="x", command=mtpl_onclick, relief="solid", bd=1, width=6)
 button_div = tk.Button(text=":", command=div_onclick, relief="solid", bd=1, width=6)
+button_pwr = tk.Button(text="^", command=pwr_onclick, relief="solid", bd=1, width=6)
 button_add["font"] = font_for_buttons
 button_sub["font"] = font_for_buttons
 button_mtpl["font"] = font_for_buttons
@@ -154,5 +180,6 @@ button_add.grid(column=1, row=2)
 button_sub.grid(column=2, row=2)
 button_mtpl.grid(column=3, row=2)
 button_div.grid(column=4, row=2)
+button_pwr.grid(column=1, row=3)
 
 root.mainloop()
