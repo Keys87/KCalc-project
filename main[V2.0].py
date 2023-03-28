@@ -156,4 +156,3 @@ button_mtpl.grid(column=3, row=2)
 button_div.grid(column=4, row=2)
 
 root.mainloop()
-
