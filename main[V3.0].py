@@ -1,20 +1,20 @@
 import tkinter as tk
 import tkinter.font as font
+import tkinter.messagebox as mbox
 import math as m
 
 root = tk.Tk()
-textbox_x = tk.Entry(relief="solid")
-textbox_y = tk.Entry(relief="solid", state="normal")
+textbox_x = tk.Entry(width=15)
 tkinter_result = tk.DoubleVar()
 tkinter_sign = tk.StringVar()
 tkinter_textbox_y_state = tk.StringVar()
+textbox_y = tk.Entry(width=15)
 label_sign = tk.Label(textvariable=tkinter_sign)
 label_result = tk.Label(textvariable=tkinter_result)
 label_equal_sign = tk.Label(text="=")
 
 
 def add_onclick():
-    tkinter_textbox_y_state.set("normal")
     x = textbox_x.get()
     y = textbox_y.get()
     if x != " ":
@@ -40,7 +40,6 @@ def add_onclick():
 
 def sub_onclick():
     def main_event():
-        tkinter_textbox_y_state.set("normal")
         sign = "-"
         tkinter_sign.set(sign)
         result = x - y
@@ -65,7 +64,6 @@ def sub_onclick():
 
 def mtpl_onclick():
     def main_event():
-        tkinter_textbox_y_state.set("normal")
         sign = "x"
         tkinter_sign.set(sign)
         result = x * y
@@ -90,7 +88,6 @@ def mtpl_onclick():
 
 def div_onclick():
     def main_event():
-        tkinter_textbox_y_state.set("normal")
         sign = ":"
         tkinter_sign.set(sign)
         result = x / y
@@ -114,8 +111,7 @@ def div_onclick():
 
 
 def pwr_onclick():
-    def main_event():
-        tkinter_textbox_y_state.set("normal")
+    def main_event(): 
         sign = "^"
         tkinter_sign.set(sign)
         result = m.pow(x, y)
@@ -140,14 +136,15 @@ def pwr_onclick():
 def sqrt_onclick():
     def main_event():
         x = textbox_x.get()
-        
+        y = textbox_y.get()
+       
         if x != " ":
             x = float(textbox_x.get())
 
         elif x == " ":
             x = 0.0
-    	
-        tkinter_textbox_y_state.set("readonly")
+        if y != "  ":
+            mbox.Message("Text inserted to the second textbox will be ignored")
         sign = "√"
         tkinter_sign.set(sign)
         result = m.sqrt(x)
@@ -160,12 +157,12 @@ def sqrt_onclick():
 font_for_buttons = font.Font(family="calibri", size=11, weight="bold")
 
 
-button_add = tk.Button(text="+", command=add_onclick, relief="solid", bd=1, width=6)
-button_sub = tk.Button(text="-", command=sub_onclick, relief="solid", bd=1, width=6)
-button_mtpl = tk.Button(text="x", command=mtpl_onclick, relief="solid", bd=1, width=6)
-button_div = tk.Button(text=":", command=div_onclick, relief="solid", bd=1, width=6)
-button_pwr = tk.Button(text="^", command=pwr_onclick, relief="solid", bd=1, width=6)
-button_sqrt  = tk.Button(text="√", command=sqrt_onclick, relief="solid", bd=1, width=6)
+button_add = tk.Button(text="+", command=add_onclick, width=10)
+button_sub = tk.Button(text="-", command=sub_onclick, width=10)
+button_mtpl = tk.Button(text="x", command=mtpl_onclick, width=10)
+button_div = tk.Button(text=":", command=div_onclick, width=10)
+button_pwr = tk.Button(text="^", command=pwr_onclick, width=10)
+button_sqrt  = tk.Button(text="√", command=sqrt_onclick, width=10)
 
 
 textbox_x.grid(column=1, row=1)
