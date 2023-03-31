@@ -9,7 +9,9 @@ V2.0: Background optimization, bug fix, GUI medernization, added support for dec
 
 V3.0: Add new operation "^" a.k.a "x to the power of y"
 
+V4.0: Redesign the GUI, add new operation "√" a.k.a "square root of x"
+
 ### Errors
 
-V3.0: "int literal" error has comeback,its an non-fatal console error(this means that the app will work as intended even when the error is triggered),it will be fixed when V3.1 rolled out
+V3.0: "int literal" error has comeback, it`s a non-fatal console error(this means that the app will work as intended even when the error is triggered),it won`t be fixed
 
