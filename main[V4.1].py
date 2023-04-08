@@ -14,6 +14,19 @@ label_result = tk.Label(textvariable=tkinter_result)
 label_equal_sign = tk.Label(text="=")
 
 
+def coma_support():
+    x = textbox_x.get()
+    y = textbox_y.get()
+    x_str_list = x.split(sep=",")
+    y_str_list = y.split(sep=",")
+    len_x = len(x_str_list)
+    q = 0
+    while q <= len_x:
+        i = x_str_list[q]
+        q = q + 1
+        i = i + x_str_list
+
+
 def add_onclick():
     x = textbox_x.get()
     y = textbox_y.get()
