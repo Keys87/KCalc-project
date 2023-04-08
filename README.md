@@ -9,7 +9,9 @@ V2.0: Background optimization, bug fix, GUI medernization, added support for dec
 
 V3.0: Add new operation "^" a.k.a "x to the power of y"
 
-V4.0: Redesign the GUI, add new operation "√" a.k.a "square root of x"
+V4.0: Add new operation "√" a.k.a "square root of x"
+
+V4.1: support for commas as seperator when inputting the numbers, example (one thousand = 1,000) but (one point zero = 1.0) and this (one thousand point zero = 1,000.0)
 
 ### Errors
 
