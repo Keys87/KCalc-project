@@ -14,22 +14,32 @@ label_result = tk.Label(textvariable=tkinter_result)
 label_equal_sign = tk.Label(text="=")
 
 
-def coma_support():
-    x = textbox_x.get()
-    y = textbox_y.get()
+def comma_support(x, y):
     x_str_list = x.split(sep=",")
     y_str_list = y.split(sep=",")
-    len_x = len(x_str_list)
-    q = 0
-    while q <= len_x:
-        i = x_str_list[q]
-        q = q + 1
-        i = i + x_str_list
+    len_x = len(x_str_list) - 1
+    len_y = len(y_str_list)
+    element = 0
+    while element < len_x:
+        x = f"{x_str_list[element]}"
+        element += 1
+        x = f"{x}{x_str_list[element]}"
+        if element == len_x - 1:
+            return int(x)
+
+    element = 0
+    while element < len_y:
+        y = f"{y_str_list[element]}"
+        element += 1
+        y = f"{y}{y[element]}"
+        if element == len_y - 1:
+            return int(y)
 
 
 def add_onclick():
     x = textbox_x.get()
     y = textbox_y.get()
+    comma_support(x, y)
     if x != " ":
         x = float(textbox_x.get())
 
@@ -124,7 +134,7 @@ def div_onclick():
 
 
 def pwr_onclick():
-    def main_event(): 
+    def main_event():
         sign = "^"
         tkinter_sign.set(sign)
         result = m.pow(x, y)
@@ -145,12 +155,13 @@ def pwr_onclick():
         y = 0.0
 
     main_event()
-    
+
+
 def sqrt_onclick():
     def main_event():
         x = textbox_x.get()
         y = textbox_y.get()
-       
+
         if x != " ":
             x = float(textbox_x.get())
 
@@ -163,20 +174,17 @@ def sqrt_onclick():
         result = m.sqrt(x)
         tkinter_result.set(result)
 
-
     main_event()
 
 
 font_for_buttons = font.Font(family="calibri", size=11, weight="bold")
-
 
 button_add = tk.Button(text="+", command=add_onclick, width=10)
 button_sub = tk.Button(text="-", command=sub_onclick, width=10)
 button_mtpl = tk.Button(text="x", command=mtpl_onclick, width=10)
 button_div = tk.Button(text=":", command=div_onclick, width=10)
 button_pwr = tk.Button(text="^", command=pwr_onclick, width=10)
-button_sqrt  = tk.Button(text="√", command=sqrt_onclick, width=10)
-
+button_sqrt = tk.Button(text="√", command=sqrt_onclick, width=10)
 
 textbox_x.grid(column=1, row=1)
 label_sign.grid(column=2, row=1)
