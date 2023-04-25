@@ -13,41 +13,65 @@ label_sign = tk.Label(textvariable=tkinter_sign)
 label_result = tk.Label(textvariable=tkinter_result)
 label_equal_sign = tk.Label(text="=")
 
+"""
+comma_support function, bot the a and b,is used to support the division of thousand by using commas, i.e: 1,000
+for this version [4.1] it's only possible to use it in the textbox not the result label, I planned for the future
+versions to support it in the result label. By the way, I want to chang the version number from 4.1 to 5.0 because this
+is a major update 
+"""
 
-def comma_support(x, y):
-    x_str_list = x.split(sep=",")
-    y_str_list = y.split(sep=",")
-    len_x = len(x_str_list) - 1
-    len_y = len(y_str_list)
-    element = 0
-    while element < len_x:
-        x = f"{x_str_list[element]}"
-        element += 1
-        x = f"{x}{x_str_list[element]}"
-        if element == len_x - 1:
-            return int(x)
 
-    element = 0
-    while element < len_y:
-        y = f"{y_str_list[element]}"
-        element += 1
-        y = f"{y}{y[element]}"
-        if element == len_y - 1:
-            return int(y)
+def comma_support_a(a):
+    a_str_list = a.split(sep=",")
+    index = 0
+    tracker = 1
+
+    a = f"{a_str_list[index]}"
+    index += 1
+
+    while len(a_str_list) > tracker:  # repeat by 2 if len(str_list) == 3
+        a = f"{a}{a_str_list[index]}"
+        index += 1
+        tracker += 1
+
+    a = float(a)
+    return a
+
+
+def comma_support_b(b):
+    b_str_list = b.split(sep=",")
+    index = 0
+    tracker = 1
+
+    b = f"{b_str_list[index]}"
+    index += 1
+
+    while len(b_str_list) > tracker:  # repeat by 2 if len(str_list) == 3
+        b = f"{b}{b_str_list[index]}"
+        index += 1
+        tracker += 1
+
+    b = float(b)
+    return b
+
+
+"""
+add_onclick function is the function used to react to the event of a user pressing the "+" button, for now it`s the only
+function that supported thousand separation by commas and I`m writing this near midnight so I want to sleep
+"""
 
 
 def add_onclick():
     x = textbox_x.get()
     y = textbox_y.get()
-    comma_support(x, y)
     if x != " ":
-        x = float(textbox_x.get())
+        x = comma_support_a(x)
 
     elif x == " ":
         x = 0.0
 
     if y != " ":
-        y = float(textbox_y.get())
+        y = comma_support_b(y)
 
     elif y == " ":
         y = 0.0
@@ -177,7 +201,7 @@ def sqrt_onclick():
     main_event()
 
 
-font_for_buttons = font.Font(family="calibri", size=11, weight="bold")
+font_for_buttons = font.Font(family="calibre", size=11, weight="bold")
 
 button_add = tk.Button(text="+", command=add_onclick, width=10)
 button_sub = tk.Button(text="-", command=sub_onclick, width=10)
