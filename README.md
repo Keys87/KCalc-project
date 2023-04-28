@@ -11,9 +11,12 @@ V3.0: Add new operation "^" a.k.a "x to the power of y"
 
 V4.0: Add new operation "√" a.k.a "square root of x"
 
-V5.0: support for commas as seperator when inputting the numbers, example (one thousand = 1,000) but (one point zero = 1.0) and this (one thousand point zero = 1,000.0)
+V5.0: support for commas as seperator when inputting the numbers, example (one thousand = 1,000) but (one point zero = 1.0) and this, (one thousand point zero = 1,000.0)
 
 ### Errors
 
 V3.0 +: "int literal" error has comeback, its a non-fatal console error(this means that the app will work as intended even when the error is triggered), it won't be fixed
 
+V5.0+ : you can separat by hundreds, tens, tens of thousands or even more! This is non-fatal GUI bug 
+
+### How to commit
