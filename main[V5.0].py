@@ -4,21 +4,14 @@ import tkinter.messagebox as mbox
 import math as m
 
 root = tk.Tk()
-textbox_x = tk.Entry(width=15)
+textbox_x = tk.Entry(width=15, bd=2)
 tkinter_result = tk.DoubleVar()
 tkinter_sign = tk.StringVar()
 tkinter_textbox_y_state = tk.StringVar()
-textbox_y = tk.Entry(width=15)
+textbox_y = tk.Entry(width=15, bd=2)
 label_sign = tk.Label(textvariable=tkinter_sign)
 label_result = tk.Label(textvariable=tkinter_result)
 label_equal_sign = tk.Label(text="=")
-
-"""
-comma_support function, bot the a and b,is used to support the division of thousand by using commas, i.e: 1,000
-for this version [4.1] it's only possible to use it in the textbox not the result label, I planned for the future
-versions to support it in the result label. By the way, I want to chang the version number from 4.1 to 5.0 because this
-is a major update 
-"""
 
 
 def comma_support_a(a):
@@ -56,8 +49,7 @@ def comma_support_b(b):
 
 
 """
-add_onclick function is the function used to react to the event of a user pressing the "+" button, for now it`s the only
-function that supported thousand separation by commas and I`m writing this near midnight so I want to sleep
+add_onclick function is the function used to react to the event of a user pressing the '+' button
 """
 
 
@@ -95,13 +87,13 @@ def sub_onclick():
     x = textbox_x.get()
     y = textbox_y.get()
     if x != " ":
-        x = float(textbox_x.get())
+        x = comma_support_a(x)
 
     elif x == " ":
         x = 0.0
 
     if y != " ":
-        y = float(textbox_y.get())
+        y = comma_support_b(y)
 
     elif y == " ":
         y = 0.0
@@ -119,13 +111,13 @@ def mtpl_onclick():
     x = textbox_x.get()
     y = textbox_y.get()
     if x != " ":
-        x = float(textbox_x.get())
+        x = comma_support_a(x)
 
     elif x == " ":
         x = 0.0
 
     if y != " ":
-        y = float(textbox_y.get())
+        y = comma_support_b(y)
 
     elif y == " ":
         y = 0.0
@@ -143,13 +135,13 @@ def div_onclick():
     x = textbox_x.get()
     y = textbox_y.get()
     if x != " ":
-        x = float(textbox_x.get())
+        x = comma_support_a(x)
 
     elif x == " ":
         x = 0.0
 
     if y != " ":
-        y = float(textbox_y.get())
+        y = comma_support_b(y)
 
     elif y == " ":
         y = 0.0
@@ -167,13 +159,13 @@ def pwr_onclick():
     x = textbox_x.get()
     y = textbox_y.get()
     if x != " ":
-        x = float(textbox_x.get())
+        x = comma_support_a(x)
 
     elif x == " ":
         x = 0.0
 
     if y != " ":
-        y = float(textbox_y.get())
+        y = comma_support_b(y)
 
     elif y == " ":
         y = 0.0
@@ -187,12 +179,13 @@ def sqrt_onclick():
         y = textbox_y.get()
 
         if x != " ":
-            x = float(textbox_x.get())
+            x = comma_support_a(x)
 
         elif x == " ":
             x = 0.0
         if y != "  ":
             mbox.Message("Text inserted to the second textbox will be ignored")
+
         sign = "√"
         tkinter_sign.set(sign)
         result = m.sqrt(x)
@@ -203,12 +196,12 @@ def sqrt_onclick():
 
 font_for_buttons = font.Font(family="calibre", size=11, weight="bold")
 
-button_add = tk.Button(text="+", command=add_onclick, width=10)
-button_sub = tk.Button(text="-", command=sub_onclick, width=10)
-button_mtpl = tk.Button(text="x", command=mtpl_onclick, width=10)
-button_div = tk.Button(text=":", command=div_onclick, width=10)
-button_pwr = tk.Button(text="^", command=pwr_onclick, width=10)
-button_sqrt = tk.Button(text="√", command=sqrt_onclick, width=10)
+button_add = tk.Button(text="+", command=add_onclick, width=12)
+button_sub = tk.Button(text="-", command=sub_onclick, width=12)
+button_mtpl = tk.Button(text="x", command=mtpl_onclick, width=12)
+button_div = tk.Button(text=":", command=div_onclick, width=12)
+button_pwr = tk.Button(text="^", command=pwr_onclick, width=12)
+button_sqrt = tk.Button(text="√", command=sqrt_onclick, width=12)
 
 textbox_x.grid(column=1, row=1)
 label_sign.grid(column=2, row=1)
