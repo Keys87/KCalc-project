@@ -7,7 +7,7 @@ V1.0: Fixed "int literal" error
 
 V2.0: Background optimization, bug fix, GUI medernization, added support for decimal numbers [example: 5.12]
 
-V3.0: Add new operation "^" a.k.a "x to the power of y"
+V3.0: Add new operation "^" a.k.a "x to the power of y", returns the old GUI
 
 V4.0: Add new operation "√" a.k.a "square root of x"
 
