@@ -1,5 +1,5 @@
 # KCalc-project
-Kcalc is an open source(GPL v3.0) calculator for desktop, it features basic arithmatical operations, such as addition, subtraction, multiplication, and division, though I planned to add more operations down the line 
+Kcalc is an open source(GPL v3.0) calculator for desktop, it features basic arithmatical operations, such as addition, subtraction, multiplication, division, exponantion, and square root.
 
 ### CHANGE LOG
 
@@ -20,3 +20,7 @@ V3.0 +: "int literal" error has comeback, its a non-fatal console error(this mea
 V5.0+ : you can separat by hundreds, tens, tens of thousands or even more! This is non-fatal GUI bug 
 
 ### How to commit
+First, you must know that the owner of this repository is a human and not active at all times to check your code.
+second, please make sure that the desciption and the tilte are clear, matching the whole body(description and title) and code
+Third, NO 18+ please
+That's it
