@@ -20,7 +20,7 @@ V3.0 +: "int literal" error has comeback, its a non-fatal console error(this mea
 V5.0+ : you can separat by hundreds, tens, tens of thousands or even more! This is non-fatal GUI bug 
 
 ### How to commit
-First, you must know that the owner of this repository is a human and not active at all times to check your code.
-second, please make sure that the desciption and the tilte are clear, matching the whole body(description and title) and code
-Third, NO 18+ please
-That's it
+###### First, you must know that the owner of this repository is a human and not active at all times to check your code.
+###### Second, please make sure that the desciption and the tilte are clear, matching the whole body(description and title) and code
+###### Third, NO 18+ please
+###### That's it
