@@ -19,7 +19,7 @@ V6.0: GUI modernization using CTk, status: working on it...
 
 V3.0 +: "int literal" error has comeback, its a non-fatal console error(this means that the app will work as intended even when the error is triggered), it won't be fixed
 
-V5.0+ : you can separat by hundreds, tens, tens of thousands or even more! This is non-fatal GUI bug 
+V5.0+ : you can separate by hundreds, tens, tens of thousands or even more! This is non-fatal GUI bug 
 
 ### How to commit
   - First, you must know that the owner of this repository is a human and not active at all times to check your code.
