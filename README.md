@@ -14,6 +14,8 @@ V5.0: Support for commas as seperator when inputting the numbers, example (one t
 
 V6.0: GUI modernization using CTk(customtkinter) and a new naming system, status: done
 
+V7.0: Brought a new UI for the legacy and modern version to make it look like actual calculator. This update is a full rework for the code so be patient, status: on work...
+
 # Known Errors
 V3.0+: "int literal" error has comeback, its a non-fatal console error(this means that the app will work as intended even when the error is triggered), it won't be fixed
 
