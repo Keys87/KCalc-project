@@ -27,7 +27,7 @@ V5.0+ : you can separate by hundreds, tens, tens of thousands or even more! This
 3. Make sure that every feature developed for main_modern is compatible with main_legacy and *vice versa*
 4. Name a source file(main.py) this way:
   1. GUI type, seperated using an underscore `_` with `main`. There's only **modern or legacy** GUI types. The result of this step is `main_modern.py` or `main_legacy.py`
-  2. Version number, we will use the new version numbering scheme (see below for version numbering scheme explanation). A version number is inside square brackets `[]`. Inside the square bracket there's a capital V as an abreviation for version number. After that there's the version number using a float, usually called decimal. Examples: `5.0`, `5.1`.
+  2. Version number, we will use the new version numbering scheme (see below for version numbering scheme explanation). A version number is inside square brackets `[]`. Inside the square bracket there's a capital V as an abreviation for version. After that there's the version number using a float, usually called decimal. Examples: `5.0`, `5.1`.
   3. Version number allowed to have only ***ONE*** number after the floating point
   4. ***DO NOT USE VERSION NUMBER THAT HAS BEEN USED***
   5. example of a final filename complying with all guidelines: main_modern[V5.0].py, main_legacy[V6.0].py, main_modern[V7.1].py
