@@ -21,7 +21,7 @@ V3.0+: "int literal" error has comeback, its a non-fatal console error(this mean
 
 V5.0+ : you can separate by hundreds, tens, tens of thousands or even more! This is non-fatal GUI bug
 
-V7.0+: you can code in a calculator, this is real bad, it's a top priority ****SECURITY VUNERABILITY****
+V7.0+: you can code in a calculator, this is real bad, it's a top priority ****SECURITY VUNERABILITY****, it's actually not too vunerable tought, but it would be nice to someone are down to patching it because I can't
 
 # How to commit
 1. First, you must know that the owner of this repository is a human and not active at all times to check your code.
