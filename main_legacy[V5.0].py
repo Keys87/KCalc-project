@@ -1,17 +1,16 @@
 import tkinter as tk
-import tkinter.font as font
-import tkinter.messagebox as mbox
-import math as m
+
 
 root = tk.Tk()
-textbox_x = tk.Entry(width=15, bd=2)
-tkinter_result = tk.DoubleVar()
-tkinter_sign = tk.StringVar()
-tkinter_textbox_y_state = tk.StringVar()
-textbox_y = tk.Entry(width=15, bd=2)
-label_sign = tk.Label(textvariable=tkinter_sign)
-label_result = tk.Label(textvariable=tkinter_result)
-label_equal_sign = tk.Label(text="=")
+root.title("KCalc")
+root.geometry("245x98")
+equation = ""
+main_entry_text = tk.StringVar()
+# to make a usual calculator we need to append the string, such as "1" to the text in textbox, then get python to eval()
+# that
+# next version is to add numpad not just opsignpad
+main_frame = tk.Frame(root)
+main_entry = tk.Entry(width=40, textvariable=main_entry_text)
 
 
 def comma_support_a(a):
@@ -48,171 +47,50 @@ def comma_support_b(b):
     return b
 
 
-"""
-add_onclick function is the function used to react to the event of a user pressing the '+' button
-"""
+def result_onclick(local_equation):  # actually this is used but you know PyCharm :|
+    # below is the algorithm to find X or x in text that is from entry widget, this here because X is used to indicate
+    # 'multiply by' operation in the app
+    local_equation = main_entry.get()
+    local_equation = local_equation.replace(" X ", " * ")  # Thanks to the person who adds replace() function into #
+    # python :)
+    local_equation = local_equation.replace(" x ", " * ")
+    main_entry_text.set("")
+    main_entry_text.set(eval(local_equation))
 
 
 def add_onclick():
-    x = textbox_x.get()
-    y = textbox_y.get()
-    if x != " ":
-        x = comma_support_a(x)
-
-    elif x == " ":
-        x = 0.0
-
-    if y != " ":
-        y = comma_support_b(y)
-
-    elif y == " ":
-        y = 0.0
-
-    def main_event():
-        sign = "+"
-        result = x + y
-        tkinter_sign.set(sign)
-        tkinter_result.set(result)
-
-    main_event()
+    main_entry_text.set(f"{main_entry.get()} + ")
 
 
 def sub_onclick():
-    def main_event():
-        sign = "-"
-        tkinter_sign.set(sign)
-        result = x - y
-        tkinter_result.set(result)
-
-    x = textbox_x.get()
-    y = textbox_y.get()
-    if x != " ":
-        x = comma_support_a(x)
-
-    elif x == " ":
-        x = 0.0
-
-    if y != " ":
-        y = comma_support_b(y)
-
-    elif y == " ":
-        y = 0.0
-
-    main_event()
+    main_entry_text.set(f"{main_entry.get()} - ")
 
 
 def mtpl_onclick():
-    def main_event():
-        sign = "x"
-        tkinter_sign.set(sign)
-        result = x * y
-        tkinter_result.set(result)
-
-    x = textbox_x.get()
-    y = textbox_y.get()
-    if x != " ":
-        x = comma_support_a(x)
-
-    elif x == " ":
-        x = 0.0
-
-    if y != " ":
-        y = comma_support_b(y)
-
-    elif y == " ":
-        y = 0.0
-
-    main_event()
+    main_entry_text.set(f"{main_entry.get()} x ")
 
 
 def div_onclick():
-    def main_event():
-        sign = ":"
-        tkinter_sign.set(sign)
-        result = x / y
-        tkinter_result.set(result)
-
-    x = textbox_x.get()
-    y = textbox_y.get()
-    if x != " ":
-        x = comma_support_a(x)
-
-    elif x == " ":
-        x = 0.0
-
-    if y != " ":
-        y = comma_support_b(y)
-
-    elif y == " ":
-        y = 0.0
-
-    main_event()
+    main_entry_text.set(f"{main_entry.get()} / ")
 
 
 def pwr_onclick():
-    def main_event():
-        sign = "^"
-        tkinter_sign.set(sign)
-        result = m.pow(x, y)
-        tkinter_result.set(result)
-
-    x = textbox_x.get()
-    y = textbox_y.get()
-    if x != " ":
-        x = comma_support_a(x)
-
-    elif x == " ":
-        x = 0.0
-
-    if y != " ":
-        y = comma_support_b(y)
-
-    elif y == " ":
-        y = 0.0
-
-    main_event()
+    main_entry_text.set(f"{main_entry.get()} ^ ")
 
 
-def sqrt_onclick():
-    def main_event():
-        x = textbox_x.get()
-        y = textbox_y.get()
+add_button = tk.Button(main_frame, text="+", width=16, command=add_onclick)
+sub_button = tk.Button(main_frame, text="-", width=16, command=sub_onclick)
+mtpl_button = tk.Button(main_frame, text="x", width=16, command=mtpl_onclick)
+div_button = tk.Button(main_frame, text="/", width=16, command=div_onclick)
+result_button = tk.Button(root, text="=", width=34, command=lambda: result_onclick(equation))
 
-        if x != " ":
-            x = comma_support_a(x)
-
-        elif x == " ":
-            x = 0.0
-        if y != "  ":
-            mbox.Message("Text inserted to the second textbox will be ignored")
-
-        sign = "√"
-        tkinter_sign.set(sign)
-        result = m.sqrt(x)
-        tkinter_result.set(result)
-
-    main_event()
-
-
-font_for_buttons = font.Font(family="calibri", size=11, weight="bold")
-
-button_add = tk.Button(text="+", command=add_onclick, width=12)
-button_sub = tk.Button(text="-", command=sub_onclick, width=12)
-button_mtpl = tk.Button(text="x", command=mtpl_onclick, width=12)
-button_div = tk.Button(text=":", command=div_onclick, width=12)
-button_pwr = tk.Button(text="^", command=pwr_onclick, width=12)
-button_sqrt = tk.Button(text="√", command=sqrt_onclick, width=12)
-
-textbox_x.grid(column=1, row=1)
-label_sign.grid(column=2, row=1)
-textbox_y.grid(column=3, row=1)
-label_equal_sign.grid(column=4, row=1)
-label_result.grid(column=5, row=1)
-button_add.grid(column=1, row=2)
-button_sub.grid(column=2, row=2)
-button_mtpl.grid(column=3, row=2)
-button_div.grid(column=4, row=2)
-button_pwr.grid(column=1, row=3)
-button_sqrt.grid(column=2, row=3)
+main_entry.grid(column=1, row=1)
+main_frame.grid(column=1, row=2)
+result_button.grid(column=1, row=3)
+add_button.grid(column=1, row=1)
+sub_button.grid(column=2, row=1)
+mtpl_button.grid(column=1, row=2)
+div_button.grid(column=2, row=2)
 
 root.mainloop()
+
